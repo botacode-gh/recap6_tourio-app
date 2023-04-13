@@ -41,7 +41,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
         type="text"
         defaultValue={defaultData?.name}
       />
-      <Label htmlFor="image-url">Image Url</Label>
+      <Label htmlFor="image-url">Image URL</Label>
       <Input
         id="image-url"
         name="image"
@@ -55,7 +55,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
         type="text"
         defaultValue={defaultData?.location}
       />
-      <Label htmlFor="map-url">Map Url</Label>
+      <Label htmlFor="map-url">Map URL</Label>
       <Input
         id="map-url"
         name="mapURL"
