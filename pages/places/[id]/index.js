@@ -41,11 +41,17 @@ export default function DetailsPage() {
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
   async function deletePlace() {
-    await fetch(`/api/places/${id}`, {
-      method: "DELETE",
-    });
-    router.push("/");
-    console.log("deleted!");
+    if (
+      confirm(
+        "Sure you want to delete this place? Once you do, it's gone, you know?"
+      )
+    ) {
+      await fetch(`/api/places/${id}`, {
+        method: "DELETE",
+      });
+      router.push("/");
+      console.log("deleted!");
+    }
   }
 
   return (
