@@ -18,6 +18,7 @@ async function sendRequest(url, { arg }) {
     console.error(`Error: ${response.status}`);
   }
 }
+
 export default function EditPage() {
   const router = useRouter();
   const { isReady } = router;
@@ -31,7 +32,7 @@ export default function EditPage() {
     console.log("place in editPlace:", place);
     await trigger(place);
     console.log("place after adding:", place);
-    router.push(`/`);
+    router.push(`/places/${id}`);
     console.log("Place edited!");
   }
 
