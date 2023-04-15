@@ -11,11 +11,18 @@ const Article = styled.article`
 const ImageContainer = styled.div`
   position: relative;
   height: 10rem;
+  margin-bottom: 1rem;
 `;
 
 const Figure = styled.figure`
   position: relative;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+`;
+
+const FigCaption = styled.figcaption`
+  font-size: 2rem;
 `;
 
 const Anchor = styled.a`
@@ -56,9 +63,11 @@ export default function Card({ name, image, location, id }) {
             alt=""
           />
         </ImageContainer>
-        <figcaption>{name}</figcaption>
+        <FigCaption>{name}</FigCaption>
       </Figure>
-      <p>Location: {location}</p>
+      <p>
+        <span aria-label="Location">📍</span> {location}
+      </p>
       <Link href={`places/${id}`} passHref legacyBehavior>
         <Anchor>
           <ScreenReaderOnly>More Info</ScreenReaderOnly>
