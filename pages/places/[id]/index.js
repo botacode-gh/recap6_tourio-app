@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { StyledLink } from "../../../components/StyledLink.js";
 import { StyledButton } from "../../../components/StyledButton.js";
 import { StyledImage } from "../../../components/StyledImage.js";
+import { useState } from "react";
+import ConfirmDeleteModal from "../../../components/ConfirmDeleteModal.js";
 
 const ImageContainer = styled.div`
   position: relative;
@@ -24,14 +26,22 @@ const ButtonContainer = styled.section`
 
 const StyledLocationLink = styled(StyledLink)`
   text-align: center;
-  background-color: white;
-  border: 3px solid #cc8062;
+  background-color: rgb(221, 235, 253);
+  border: 3px solid rgb(255, 160, 122);
+  width: 50%;
+  justify-self: center;
 `;
 
 export default function DetailsPage() {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
+
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+
+  function handleModalIsVisible() {
+    setModalIsVisible(!modalIsVisible);
+  }
 
   console.log("router:", router);
   console.log("router.query:", router.query);
@@ -81,10 +91,22 @@ export default function DetailsPage() {
         <Link href={`/places/${id}/edit`} passHref legacyBehavior>
           <StyledLink>Edit</StyledLink>
         </Link>
-        <StyledButton onClick={deletePlace} type="button" variant="delete">
+        <StyledButton
+          type="button"
+          onClick={handleModalIsVisible}
+          variant="delete"
+        >
           Delete
         </StyledButton>
+        {modalIsVisible && (
+          <ConfirmDeleteModal
+            handleModalIsVisible={handleModalIsVisible}
+            deletePlace={deletePlace}
+          />
+        )}
       </ButtonContainer>
     </>
   );
 }
+
+export { ButtonContainer };
