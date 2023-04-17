@@ -4,8 +4,9 @@ import { StyledImage } from "./StyledImage.js";
 
 const Article = styled.article`
   border: 5px solid black;
-  border-radius: 0.8rem;
-  padding: 0.5rem;
+  border-radius: 2rem;
+  padding: 1rem;
+  background: white;
 `;
 
 const ImageContainer = styled.div`

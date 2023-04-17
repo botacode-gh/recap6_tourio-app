@@ -3,5 +3,5 @@ import styled from "styled-components";
 
 export const StyledImage = styled(Image)`
   object-fit: cover;
-  border-radius: 0.3rem;
+  border-radius: 1rem;
 `;
