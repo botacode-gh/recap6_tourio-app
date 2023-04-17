@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const StyledLink = styled.a`
-  background-color: #cc8062;
+  background-color: rgb(255, 160, 122);
   padding: 0.8rem 1.5rem;
   border-radius: 0.6rem;
   color: black;
@@ -10,7 +10,7 @@ export const StyledLink = styled.a`
 
   &:focus {
     color: white;
-    background-color: rgb(255, 160, 122);
+    background-color: #7ad9ff;
   }
 
   ${({ justifySelf }) =>
@@ -24,6 +24,6 @@ export const StyledLink = styled.a`
     css`
       text-align: center;
       background-color: white;
-      border: 3px solid #cc8062;
+      border: 3px solid rgb(255, 160, 122);
     `}
 `;
