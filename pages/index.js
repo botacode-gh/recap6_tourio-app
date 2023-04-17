@@ -16,12 +16,30 @@ const List = styled.ul`
 const ListItem = styled.li`
   position: relative;
   width: 100%;
-  max-width: 890px;
+  max-width: 800px;
 `;
 const FixedLink = styled(StyledLink)`
   position: fixed;
   bottom: 50px;
-  right: 50px;
+  right: 22vw;
+
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    right: 10vw;
+  }
+
+  @media (width: 1440px) {
+    right: 25vw;
+  }
+
+  @media (min-width: 2560px) {
+    bottom: 8vw;
+    right: 37vw;
+  }
 `;
 export default function Home() {
   const { data } = useSWR("/api/places", { fallbackData: [] });
