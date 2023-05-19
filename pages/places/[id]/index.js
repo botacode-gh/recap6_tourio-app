@@ -102,6 +102,7 @@ export default function DetailsPage() {
           <ConfirmDeleteModal
             handleModalIsVisible={handleModalIsVisible}
             deletePlace={deletePlace}
+            placeName={place.name}
           />
         )}
       </ButtonContainer>
