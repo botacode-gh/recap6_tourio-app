@@ -24,6 +24,18 @@ const StyledModal = styled.div`
   justify-content: center;
   border-radius: 2rem;
   max-height: 200px;
+
+  ${({ variant }) =>
+    variant === "delete" &&
+    css`
+      background-color: rgb(100, 255, 255);
+
+      /* &:hover {
+      }
+
+      &:focus {
+      } */
+    `}
 `;
 
 const StyledPlaceName = styled.span`

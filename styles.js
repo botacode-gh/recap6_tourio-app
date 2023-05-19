@@ -8,7 +8,7 @@ export default createGlobalStyle`
   }
 
   body {
-    font-family: 'Arial Rounded MT Bold', monospace;
+    font-family: 'Avenir', monospace;
     margin: 0 auto;
     justify-content: center;
     max-width: 800px;
