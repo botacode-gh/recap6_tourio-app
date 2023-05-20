@@ -7,6 +7,7 @@ const Article = styled.article`
   border-radius: 2rem;
   padding: 1rem;
   background: white;
+  box-shadow: 0px 1px 2px 1px rgba(52, 46, 94, 0.29);
 `;
 
 const ImageContainer = styled.div`
