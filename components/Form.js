@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { StyledButton } from "./StyledButton.js";
+import { useState } from "react";
 
 const FormContainer = styled.form`
   display: grid;
@@ -24,7 +25,15 @@ const Label = styled.label`
   font-weight: bold;
 `;
 
+const HelperText = styled.p`
+  font-size: 0.8rem;
+  color: #342e5e;
+  margin-top: 0.5rem;
+`;
+
 export default function Form({ onSubmit, formName, defaultData }) {
+  const [showImageHelper, setShowImageHelper] = useState(false);
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -40,6 +49,8 @@ export default function Form({ onSubmit, formName, defaultData }) {
         name="name"
         type="text"
         defaultValue={defaultData?.name}
+        placeholder="Mount Doom"
+        autoFocus
       />
       <Label htmlFor="image-url">Image URL</Label>
       <Input
@@ -47,12 +58,22 @@ export default function Form({ onSubmit, formName, defaultData }) {
         name="image"
         type="text"
         defaultValue={defaultData?.image}
+        placeholder="upload.wikimedia.org/... or images.unsplash.com/..."
+        onFocus={() => setShowImageHelper(true)}
+        onBlur={() => setShowImageHelper(false)}
       />
+      {showImageHelper && (
+        <HelperText>
+          Only domains from <strong>unsplash.com</strong> and{" "}
+          <strong>wikimedia.org</strong> are allowed.
+        </HelperText>
+      )}
       <Label htmlFor="location">Location</Label>
       <Input
         id="location"
         name="location"
         type="text"
+        placeholder="Mordor"
         defaultValue={defaultData?.location}
       />
       <Label htmlFor="map-url">Map URL</Label>
@@ -60,6 +81,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
         id="map-url"
         name="mapURL"
         type="text"
+        placeholder="www.google.com/maps/..."
         defaultValue={defaultData?.mapURL}
       />
       <Label htmlFor="description">Description</Label>
@@ -68,6 +90,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
         id="description"
         cols="30"
         rows="10"
+        placeholder="Very dry air, lots of lava, not simple to walk into. 8/10."
         defaultValue={defaultData?.description}
       ></Textarea>
       <StyledButton type="submit">

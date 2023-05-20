@@ -7,6 +7,7 @@ import { StyledButton } from "../../../components/StyledButton.js";
 import { StyledImage } from "../../../components/StyledImage.js";
 import { useState } from "react";
 import ConfirmDeleteModal from "../../../components/ConfirmDeleteModal.js";
+import { set } from "mongoose";
 
 const ImageContainer = styled.div`
   position: relative;
@@ -51,17 +52,13 @@ export default function DetailsPage() {
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
   async function deletePlace() {
-    if (
-      confirm(
-        "Sure you want to delete this place? Once you do, it's gone, you know?"
-      )
-    ) {
-      await fetch(`/api/places/${id}`, {
-        method: "DELETE",
-      });
-      router.push("/");
-      console.log("deleted!");
+    if (alert("Sorry, can't let you actually do that :(")) {
+      // DEACTIVATED for now
+      // await fetch(`/api/places/${id}`, {
+      //   method: "DELETE",
+      // });
     }
+    setModalIsVisible(false);
   }
 
   return (
